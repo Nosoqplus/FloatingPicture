@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Floating Picture!</title>
+</head>
+<body>
+    <video controls hidden id="main-video"></video>
+    <header>
+        <h1>Floating Picture</h1>
+        <p>Автор: Вадим Вердож</p>
+    </header>
+    <div class="container">
+        
+        <div class="button-container">
+            <p>Push to start</p>
+            <button></button>
+        </div>
+        <div class="guideline-container">
+            <div class="content">
+            </div>
+            <div class="controls">
+                <button class="turn-left"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></button>
+                <div class="page-circle-container">
+                </div>
+                <button class="turn-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></button>
+                
+            </div>
+        </div>
+    </div>
+
+    <template>
+        <div class="pages">
+            <div class="page page-1">
+                <h3>Этот сайт сделан для создания "плавающий" окон из вкладок браузера, окна или целого экрана вашего компьютера.</h3>
+                <img src="res/video.gif">
+                <p>Важно: для корректной работы используйте ПК версию сайта</p>
+            </div>
+            <div class="page page-2">
+                <h3>ИНСТРУКЦИЯ</h3>
+                <p>1. Нажмите на большую красную кнопку (ее трудно не заметить)</p>
+                <img src="./res/step1.png" alt="">
+            </div>
+            <div class="page page-3">
+                <p>2. Ориентируясь в этом меню, выберите, что хотите открыть как плавающее окно</p>
+                <img src="./res/Step2.png" alt="">
+            </div>
+            <div class="page page-4">
+                <p>3. Жмем "Поделиться"</p>
+                <img src="./res/Step3.png" alt="">
+            </div>
+            <div class="page page-5">
+                <h3>Стоковые люди показывают большой палец</h3>
+                <img src="./res/finish.jpg" alt="">
+            </div>
+        </div>
+    </template>
+    <script src="script.js"></script>
+</body>
+</html>
