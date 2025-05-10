@@ -85,12 +85,12 @@ header{
         justify-content: space-between;
         align-items: center;
 
-        .page-circle-container{
+        .pips-container{
             max-width: 500px;
             display: flex;
             gap: 5px;
         }
-        .page-circle{
+        .pip{
             /* display: inline; */
 
             width: 10px;
@@ -99,7 +99,7 @@ header{
             border-radius: 50%;
         }
 
-        .page-circle.active{
+        .pip.active{
             background-color: black;
         }
 
