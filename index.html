@@ -10,7 +10,16 @@
     <video controls hidden id="main-video"></video>
     <header>
         <h1>Floating Picture</h1>
-        <p id="author-p">Автор: Вадим Вердож</p>
+        <div class="header-controls">
+            <select id="lang-select">
+                <option value="ru">RU</option>
+                <option value="en">EN</option>
+                <option value="fr">FR</option>
+                <option value="ita">ITA</option>
+                <option value="jap">JAP</option>
+            </select>
+            <button id="instruction-btn">Как с этим работать?</button>
+        </div>
     </header>
     <div class="container">
         
@@ -18,7 +27,7 @@
             <p id="button-title">Старт</p>
             <button></button>
         </div>
-        <div class="guideline-container">
+        <div class="instruction-container" hidden>
             <div class="content">
             </div>
             <div class="controls">
@@ -29,7 +38,11 @@
                 
             </div>
         </div>
+        
     </div>
+    <footer>
+        <p id="author-p">Автор: Вадим Вердож</p>
+    </footer>
 
     <template>
         <div class="pages">
@@ -61,6 +74,8 @@
             </div>
         </div>
     </template>
+
+    <script src="translate.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

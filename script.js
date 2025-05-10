@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function(){
-    // Multiple usage variables
+    // ТЖг шаблона
     const template = document.querySelector('template');
 
-    // Pic in Pic variables
+    // Переменные для PicInPic
     const mediaStreamButton = document.querySelector('.button-container button');
     const videoElement = document.querySelector('#main-video');
     
-    // Page swap variables
+    // Переменные для перелистывания страниц
     const pages = template.content.querySelectorAll('.pages .page');
     
     const contentDiv = document.querySelector('.content');
@@ -21,7 +21,14 @@ document.addEventListener('DOMContentLoaded', function(){
     let nextPage;
     let prevPage;
     let currPageIndex = 0;
-    console.log(pages, pagesCircles, buttonLeft, buttonRight, contentDiv);
+    
+    // Переменные для работы с языками
+    const langSelect = document.querySelector('select#lang-select');
+    const languages = ['ru', 'en', 'fr', 'ita', 'jap'];
+
+    // Кнопка для вкл/выкл инструкции
+    const instrBtn = document.querySelector('#instruction-btn');
+    const instrContainer = document.querySelector('.instruction-container');
     
     // Вспомогательные функции
     function appendMultipleChildren(parent, children = []){
@@ -36,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function(){
             button.disabled = !button.disabled;
         });
     }
-
     
     
     
@@ -56,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
     
     // Функционал инструкции
-
+    
     // Создает пипсы для обозначения настоящей страницы
     // Выполняется один раз при загрузке страницы
     function spawnPipsCircles(){
@@ -73,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function(){
             pagesCircles.push(pip);
         });
     }
-
+    
     // Выключает все пипсы и включает ту, индекс в массиве которой соответствует индексу в массиве настоящей страницы
     function pipsUpdate(){
         pagesCircles.forEach((circle) => {
@@ -105,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
     
     // Смена страниц
+    // Исполняется при нажатии на кнопки turnLeft и turnRught
     function swapPages(newCurrPage, oldPrevPage, toLeft){
         
         // Изменение положения новой и старой текущей страницы
@@ -126,22 +133,85 @@ document.addEventListener('DOMContentLoaded', function(){
         // Выключение кнопок до момента завершения анимации
         toggleButtons([buttonLeft, buttonRight]);
         
+        // Удаление ненужных страниц
         currPage.remove();
         oldPrevPage.remove();
         
+        // Включение кнопок и создание новых страниц по таймеру
         setTimeout(() => {
             getPagesReadyToSwap();
             toggleButtons([buttonLeft, buttonRight]);
         }, BUTTON_SWAP_COOLDOWN);
-
-        console.log(currPageIndex);
+        
+        // Присваеваем новое значение переменной currpage
         currPage = newCurrPage;
-        console.log('currpage:', currPage, 'nextpage:', nextPage, 'nextCurrpage:', newCurrPage, 'oldPrevPage', oldPrevPage);
     }
     
     
+    // Смена языков
+
+    // Добавляет хэш с аббревиатурой языка
+    // Исполняется каждый раз при изенении значения в <select>
+    function applyLangToURL() {
+        // Добавление в URL страницы выбора пользователя
+        location.hash = langSelect.value;
+        
+        // Перезагрузка страницы для исполнения функции changeLanguage
+        location.reload();
+    }
     
-    // Прослушиватели событий для кнопок
+        // По сути, можно было бы отказаться от использования хэшей и брать значения из <select> напрямую,
+        // Но тогда при перезагрузках страницы все всегда возвращалось бы к начальному значению,
+        // Как и при пересылки между пользователями
+
+    // Изменяет содержание элементов под выбранный язык
+    // Исполняется при загрузке страницы
+    function changeLanguage(){
+        // Получение хэша страницы и перевода его в строковое значения языка
+        hash = location.hash;
+        lang = hash.substr(1);
+
+        
+
+
+
+
+        // Проверка, есть ли перевод такого языка
+        if(languages.includes(lang)){
+            // Изменяем <select> под выбранный язык
+            langSelect.value = lang;
+
+
+            // Перевод всех элементов на странице
+            for(key in translateArr){
+                let elem = document.querySelector('#' + key);
+                if(elem){
+                    elem.textContent = translateArr[key][lang]; 
+                    console.log('translated:', elem);
+                }
+            
+            // Перевод всех страниц из массива с страницами
+            // Отдельно, потому что иначе до них не получиться достучаться обычным document.querySelector
+            for(key in translateArr){
+                let elem;
+                pages.forEach((page) => {
+                    elemToTransl = page.querySelector('#' + key);
+                    if(elemToTransl){
+                        elem = elemToTransl;
+                    }
+                });
+                if(elem){
+                    elem.textContent = translateArr[key][lang]; 
+                    console.log('translated:', elem);
+                }
+            }    
+            }    
+
+        }
+
+    }    
+    
+    // Прослушиватели
     buttonRight.addEventListener('click', () => {
         swapPages(nextPage,prevPage, true);
     });
@@ -151,10 +221,16 @@ document.addEventListener('DOMContentLoaded', function(){
     });
     
     mediaStreamButton.addEventListener('click', startPicInPic);
+
+    langSelect.addEventListener('change', applyLangToURL);
+
+    instrBtn.addEventListener('click', () => {instrContainer.hidden = !instrContainer.hidden});
     
     // onLoad
     spawnPipsCircles();
     pipsUpdate();
 
+    changeLanguage();
     getPagesReadyToSwap();
+
 });

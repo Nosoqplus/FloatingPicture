@@ -11,6 +11,21 @@ body{
     background-color: whitesmoke;
 }
 
+button{
+    cursor: pointer;
+    transition: all 0.2s;
+    
+    &:hover{
+        opacity: 0.9;
+    }
+
+    &:active{
+        transform: scale(0.9);
+        color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+
 img, video {
     max-width: 100%;
 }
@@ -21,6 +36,16 @@ header{
     
     h1{
         padding: 2rem 0 1rem;
+    }
+    .header-controls button, .header-controls select{
+        background: none;
+        font-family: inherit;
+        padding: 4px 10px;
+        color: gray;
+        border: 1px solid gray;
+        outline: none;
+
+        height: 2rem;
     }
 }
 
@@ -38,7 +63,7 @@ header{
     padding: 32px;
 }
 
-.guideline-container{
+.instruction-container{
     position: relative;
 
     min-width: 500px;
@@ -158,5 +183,15 @@ header{
             transform: scale(0.99);
             background: radial-gradient(ellipse at center, rgb(150, 0, 0) 15%, rgb(200, 0, 0) 60%, rgb(242, 0, 0) 65%);
         }
+    }
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+
+    padding: 1rem;
+    p{
+        font-size: 10px;
     }
 }
