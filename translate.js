@@ -32,7 +32,7 @@ const translateArr = {
         'en':'Warning: for correct operation please use the PC version of the site',
         'fr':'Important : pour un fonctionnement correct veuillez utiliser la version PC du site',
         'ita':'Importante: per un corretto funzionamento utilizzare la versione PC del sito',
-        'jap':'重要: 正しく操作するには、サイトのPC版をご利用ください。',
+        // 'jap':'重要: 正しく操作するには、サイトのPC版をご利用ください。',
     },
     'instruction-h':{
         'ru':'ИНСТРУКЦИЯ',

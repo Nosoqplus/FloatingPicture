@@ -79,7 +79,7 @@ header{
         width: 100%;
 
         .page{
-            padding: 3rem;
+            padding: 1rem 3rem;
             width: 100%;
             position: absolute;
             transition: left 0.3s ease;

@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function(){
                         elem = elemToTransl;
                     }
                 });
-                if(elem){
+                if(elem && translateArr[key][lang]){
                     elem.textContent = translateArr[key][lang]; 
                     console.log('translated:', elem);
                 }
