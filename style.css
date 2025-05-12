@@ -75,7 +75,7 @@ header{
     .content{
         overflow: hidden;
         position: relative;
-        height: 450px;
+        min-height: 450px;
         width: 100%;
 
         .page{
@@ -193,5 +193,21 @@ footer{
     padding: 1rem;
     p{
         font-size: 10px;
+    }
+}
+
+@media (max-width:1100px){
+    .container{
+        min-width: 0;
+        flex-direction: column
+    }
+    footer{
+        position: static;
+    }
+    .instruction-container{
+        min-width: 300px;
+    }
+    .page{
+        min-width: 100px;
     }
 }
