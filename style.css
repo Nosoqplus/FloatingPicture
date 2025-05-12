@@ -45,7 +45,7 @@ header{
         border: 1px solid gray;
         outline: none;
 
-        height: 2rem;
+        min-height: 2rem;
     }
 }
 
@@ -201,6 +201,10 @@ footer{
         min-width: 0;
         flex-direction: column
     }
+    .header-controls button{
+        margin: 7px;
+    }
+    
     footer{
         position: static;
     }
