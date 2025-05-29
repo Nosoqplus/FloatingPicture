@@ -1,4 +1,11 @@
 const translateArr = {
+    'check-label' : {
+        'ru':'Отображать трансляцию на этом сайте',
+        'en':'Display broadcast on this site',
+        'fr':'Afficher la diffusion sur ce site',
+        'ita':'Visualizza la trasmissione su questo sito',
+        'jap':'このサイトで放送を表示する',
+    },
     'author-p' : {
         'ru':'Автор: Вадим Вердож',
         'en':'Author: Vadim Verdoj',
@@ -75,5 +82,19 @@ const translateArr = {
         'fr':'Les gens de la bourse lèvent le pouce',
         'ita':'Persone che fanno il pollice in su',
         'jap':'親指を立てているストックの人々',
+    },
+    'problems-page-h':{
+        'ru':'Окно не открылось?',
+        'en':'The window didn\'t open?',
+        'fr':'La fenêtre ne s\'est pas ouverte ?',
+        'ita':'La finestra non si è aperta?',
+        'jap':'窓が開かなかった？',
+    },
+    'problems-page-p':{
+        'ru':'Попробуйте повторить, отметив перед этим "Отображать трансляцию на этом сайте". Или же включите его сами, используя появившийся видеоплеер',
+        'en':'Try again, having checked "Display broadcast on this site" before. Or turn it on yourself using the video player that appears',
+        'fr':'Réessayez en cochant « Afficher la diffusion sur ce site » avant de le faire. Ou allumez-le vous-même en utilisant le lecteur vidéo qui apparaît',
+        'ita':'Riprova, selezionando "Visualizza trasmissione su questo sito" prima di procedere. Oppure accendilo tu stesso utilizzando il lettore video che appare',
+        'jap':'実行する前に、「このサイトで放送を表示する」をチェックして、もう一度お試しください。または、表示されるビデオプレーヤーを使用して自分でオンにすることもできます',
     },
 }

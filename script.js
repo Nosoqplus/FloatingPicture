@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', function(){
     // Кнопка для вкл/выкл инструкции
     const instrBtn = document.querySelector('#instruction-btn');
     const instrContainer = document.querySelector('.instruction-container');
+
+    // Checkbox
+    const streamOnPageCheck = document.querySelector('#picture-in-picture-viewport');
     
     // Вспомогательные функции
     function appendMultipleChildren(parent, children = []){
@@ -44,7 +47,10 @@ document.addEventListener('DOMContentLoaded', function(){
         });
     }
     
-    
+    // Отображение трансляции на странице
+    function streamCheckHandler(){
+        videoElement.hidden = !videoElement.hidden;
+    }
     
     // Функционал плавающего окна
     
@@ -54,7 +60,11 @@ document.addEventListener('DOMContentLoaded', function(){
             videoElement.srcObject = mediaStream;
             videoElement.onloadeddata = () => {
                 videoElement.play();
-                videoElement.requestPictureInPicture();
+                setTimeout(function(){
+                    videoElement.requestPictureInPicture();
+                    console.log('picture in picture');
+                }, 
+            2000);
             };
         } catch (error) {
             alert('startPicInPic error ', error);
@@ -187,7 +197,6 @@ document.addEventListener('DOMContentLoaded', function(){
                 let elem = document.querySelector('#' + key);
                 if(elem){
                     elem.textContent = translateArr[key][lang]; 
-                    console.log('translated:', elem);
                 }
             
             // Перевод всех страниц из массива с страницами
@@ -202,7 +211,6 @@ document.addEventListener('DOMContentLoaded', function(){
                 });
                 if(elem && translateArr[key][lang]){
                     elem.textContent = translateArr[key][lang]; 
-                    console.log('translated:', elem);
                 }
             }    
             }    
@@ -225,7 +233,9 @@ document.addEventListener('DOMContentLoaded', function(){
     langSelect.addEventListener('change', applyLangToURL);
 
     instrBtn.addEventListener('click', () => {instrContainer.hidden = !instrContainer.hidden});
-    
+
+    streamOnPageCheck.addEventListener('change', streamCheckHandler);
+    console.log(streamOnPageCheck);
     // onLoad
     spawnPipsCircles();
     pipsUpdate();

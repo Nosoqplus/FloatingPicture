@@ -37,6 +37,19 @@ header{
     h1{
         padding: 2rem 0 1rem;
     }
+    .header-controls .check-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        
+    }
+    .header-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
     .header-controls button, .header-controls select{
         background: none;
         font-family: inherit;
@@ -46,6 +59,9 @@ header{
         outline: none;
 
         min-height: 2rem;
+    }
+    .header-controls label{
+            font-size: 14px;
     }
 }
 
@@ -83,6 +99,7 @@ header{
             width: 100%;
             position: absolute;
             transition: left 0.3s ease;
+            word-wrap: break-word;
         }
 
 
